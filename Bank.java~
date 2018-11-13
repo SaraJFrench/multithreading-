@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Bank {
+  
+  private ArrayList<Account> accounts; 
+  
+  public Bank(int accountsnumber, int clientNumber){
+    
+    accounts = new ArrayList<Account>();
+    Client client1 = new Client("Jack");
+    Client client2 = new Client ("Joya");
+    
+    
+    
+    accounts.add(new Account(client1,1,6000)); 
+    accounts.add(new Account(client2,2,6000));
+    accounts.add(new Account(client1,3,6000));
+    accounts.add(new Account(client2,4,6000));
+    accounts.add(new Account(client1,5,6000));
+    
+    
+  }
+  
+  
+  public Account getAccount(){ 
+    
+    return accounts.get((int) (getRandomNumberInRange(0,4)));
+    
+  }
+  
+  public void printSummary() {
+    
+    for (Account a : accounts)
+      
+      System.out.println(a.toString());
+  }
+  
+  
+  private static int getRandomNumberInRange(int min, int max) {
+    
+    Random r = new Random();
+    return r.nextInt((max - min) + 1) + min;
+  }
+}
+
+
+
+
